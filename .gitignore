@@ -1,0 +1,23 @@
+# Disposable experiments and build output.
+/develop/
+/target/
+
+# Python tooling.
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Local editor and operating-system files.
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+*.log
+
+# Only selected inspection PDFs are committed beside their sources.
+*.pdf
+!/docs/manual.pdf
+!/examples/demo.pdf
+!/examples/slide-previews.pdf

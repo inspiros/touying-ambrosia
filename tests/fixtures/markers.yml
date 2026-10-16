@@ -1,0 +1,10 @@
+yaml-entry:
+  type: article
+  title: Native YAML source
+  author:
+    - name: Yaml
+      given-name: Alice
+  date: 2026
+  parent:
+    type: periodical
+    title: Native Data
