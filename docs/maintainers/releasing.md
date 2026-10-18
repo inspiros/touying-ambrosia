@@ -24,8 +24,11 @@ remain readable on GitHub. Commit these inspection copies beside their sources:
 refreshing the gallery and bundled slide-preview snapshots. Keep temporary
 renders and the starter validation PDF under `target`. Do not commit a
 `template/template.pdf`: it duplicates the examples and is not starter content.
-Fictional affiliation branding lives in `examples/showcase.typ`, outside the
-initialized template.
+Fictional affiliation branding lives in `examples/showcase.typ` and
+`examples/logo-data.typ`, outside the initialized template. The latter reads
+the repository's `assets/logos/` files directly; those fictional marks are
+excluded from package installs. The installed `template/logo-data.typ` only
+handles Ambrosia's own project mark.
 
 After final testing and wording review, commit the complete source, push the
 repository, and create/push its version tag. Tags must exist before links in a
@@ -53,9 +56,10 @@ The trimmed copy contains:
 
 Do not copy `.git`, tests, development scripts, docs, examples, generated PDFs,
 caches, README gallery/hero artwork, or the example photograph `assets/kyklo.webp`.
-Keep the small bundled logo catalog: the exported asset descriptors and branding
-examples reference it. The required initialized-template thumbnail is the one
-exception to omitting documentation artwork.
+Omit fictional lab and partner logos; only Ambrosia's own light/dark project
+marks belong in the core's `assets/logos/` submission. The required
+initialized-template thumbnail is the one exception to omitting documentation
+artwork.
 
 Rewrite the submission README, without changing the personal repository README:
 

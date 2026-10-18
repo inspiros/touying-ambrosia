@@ -1,6 +1,6 @@
 # Draft With An Agent
 
-The optional [Ambrosia skill](https://github.com/inspiros/touying-ambrosia/tree/master/skills/touying-ambrosia)
+The optional [Ambrosia skill](https://github.com/inspiros/touying-ambrosia/tree/v0.1.0/skills/touying-ambrosia)
 helps compatible coding agents create and edit presentations with this theme.
 It contains instructions, a complete starter, and metadata/citation recipes.
 It targets **Ambrosia 0.1.0** and needs no extra runtime dependencies. Typst and
@@ -65,6 +65,8 @@ conversion, narrative planning, theme selection, asset tools, and exports.
 Ambrosia's skill supplies focused API guidance when this theme is chosen. It
 works independently; neither skill is a dependency of the other.
 
-The skill follows the repository's development branch while declaring the API
-version it supports. Keep a project-local copy for reproducible guidance; review
-updates alongside package upgrades. Older release tags may predate the skill.
+The repository shorthand installs from its default branch. To pin the skill
+to this release, use
+`https://github.com/inspiros/touying-ambrosia/tree/v0.1.0/skills/touying-ambrosia`
+as the installation source instead. Keep a project-local copy for reproducible
+guidance and review updates alongside package upgrades.

@@ -456,7 +456,10 @@ def assert_installed_template(output):
     package = tomllib.loads((ROOT / "typst.toml").read_text())["package"]
     package_dir = data_dir / "typst/packages/preview" / package["name"] / package["version"]
     assert all(not (package_dir / path).exists()
-               for path in ("develop", "target", "tests", "docs", "examples", "assets/samples", "assets/gallery", ".git", ".github", ".aws"))
+               for path in ("develop", "target", "tests", "docs", "skills", "examples", "assets/samples", "assets/gallery", ".git", ".github", ".aws"))
+    assert {p.name for p in (package_dir / "assets/logos").iterdir()} == {
+        "touying-ambrosia.svg", "touying-ambrosia-dark.svg",
+    }, "Example-only affiliation logos must not enter the installed package."
     starter = ROOT / "develop/tests/installed-starter"
     shutil.copytree(package_dir / "template", starter, dirs_exist_ok=True)
     typst("compile", "--root", starter, "--package-path", data_dir / "typst/packages",

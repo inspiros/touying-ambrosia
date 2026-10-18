@@ -1,6 +1,6 @@
 #import "@preview/touying-ambrosia:0.1.0": *
 #import "../template/project-brand.typ": project-theme
-#import "../template/logo-data.typ": display-data
+#import "logo-data.typ": display-data
 
 // Edit these values in your IDE. Set layout to a single preset, or "all".
 #let layout = "all" // "stacked", "header", "split", "plain", "featured", "cover"

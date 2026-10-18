@@ -114,9 +114,8 @@ so the prepared Universe submission only needs its README link updated.
 
 `skills/touying-ambrosia/` is a portable consumer skill, distributed from GitHub
 and excluded from the Typst package. `docs/agent-skill.md` explains installation
-and invocation; it deliberately links to the development branch because the
-initial release tag predates the skill. Future releases can pin that link to
-a tag that includes it.
+and invocation, with a release-tagged source link and an optional pinned
+installation URL. Update those references alongside the supported API version.
 
 Keep `SKILL.md` focused on authoring decks. The starter and optional recipes
 must use exported APIs; update their supported version and documentation links

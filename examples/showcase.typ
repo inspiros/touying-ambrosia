@@ -1,7 +1,7 @@
 #import "@preview/touying-ambrosia:0.1.0" as core
 
 // Fictional branding for examples only. ambrosia-theme itself has no default logos.
-#import "../template/logo-data.typ": display-data as _data
+#import "logo-data.typ": display-data as _data
 #let _logo(name, self, background: auto) = image(bytes(_data(name,
   dark: core.palettes.prefer-light(if background == auto { self.store.at("logo-background", default: self.page.fill) } else { background }))))
 #let _header-logo(self) = {

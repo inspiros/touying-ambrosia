@@ -1,5 +1,5 @@
 #import "@preview/touying-ambrosia:0.1.0": *
-#import "../template/logo-data.typ": display-data
+#import "logo-data.typ": display-data
 
 // Change these defaults in an IDE; no command-line setup is required.
 #let flavor = "minimal" // try simple, cambridge, darmstadt, or stargazer
