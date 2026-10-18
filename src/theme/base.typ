@@ -19,6 +19,7 @@
 /// Configure a flavor's layout and semantic palette, then apply user overrides.
 /// Institution wrappers can supply a flavor descriptor and branding callbacks.
 /// See docs/extensions.md and docs/palettes.md for supported configuration.
+/// Outline leaders use outline-fill (content/none); see docs/agendas.md.
 /// Appendix slide labels use appendix-numbering (pattern/function/none) and
 /// appendix-total (boolean); see docs/people.md. A custom footer-ad overrides both.
 #let ambrosia-theme(
@@ -104,6 +105,7 @@
   watermark-opacity: 0.055,
   watermark-height: 50%,
   agenda-style: "list",
+  outline-fill: none,
   outline-min-scale: 80%,
   footer-min-scale: 80%,
   author-columns: auto,
@@ -121,6 +123,8 @@
   assert(0% <= navigation-buttons-opacity and navigation-buttons-opacity <= 100%, message: "Navigator opacity must be between 0% and 100%.")
 
   assert(agenda-style in ("list", "cards", "path"), message: "Agenda style must be list, cards, or path.")
+  assert(outline-fill == none or type(outline-fill) in (content, str),
+    message: "Outline fill must be content or none.")
   let definition = get-flavor(flavor)
   assert(code-style in ("surface", "plain"), message: "Code style must be surface or plain.")
   assert(quote-style in ("stripe", "plain"), message: "Quote style must be stripe or plain.")
@@ -311,6 +315,7 @@
       watermark-opacity: watermark-opacity,
       watermark-height: watermark-height,
       agenda-style: agenda-style,
+      outline-fill: outline-fill,
       outline-min-scale: outline-min-scale,
       footer-min-scale: footer-min-scale,
       author-columns: author-columns,

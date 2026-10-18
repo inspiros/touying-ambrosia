@@ -9,7 +9,7 @@ description = "Configurable Touying slides, palettes, and presentation tools"
 keywords = ["touying", "presentation", "slides", "theme", "palette"]
 categories = ["presentation"]
 compiler = "0.15.0"
-exclude = ["CONTRIBUTING.md", ".git", ".agents", ".codex", ".aws", "develop", "target", "tests", "docs", "scripts", "examples", "assets/samples", "assets/kyklo.webp", "assets/gallery", "assets/thumbnail.svg", "assets/slide-previews", "*.pdf", "**/*.pdf", "__pycache__", "**/__pycache__", ".venv", ".pytest_cache", "*.py[cod]"]
+exclude = ["CONTRIBUTING.md", ".git", ".github", ".agents", ".codex", ".aws", "develop", "target", "tests", "docs", "scripts", "examples", "assets/samples", "assets/kyklo.webp", "assets/gallery", "assets/thumbnail.svg", "assets/slide-previews", "*.pdf", "**/*.pdf", "__pycache__", "**/__pycache__", ".venv", ".pytest_cache", "*.py[cod]"]
 
 [template]
 path = "template"

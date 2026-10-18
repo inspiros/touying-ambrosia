@@ -456,7 +456,7 @@ def assert_installed_template(output):
     package = tomllib.loads((ROOT / "typst.toml").read_text())["package"]
     package_dir = data_dir / "typst/packages/preview" / package["name"] / package["version"]
     assert all(not (package_dir / path).exists()
-               for path in ("develop", "target", "tests", "docs", "examples", "assets/samples", "assets/gallery", ".git", ".aws"))
+               for path in ("develop", "target", "tests", "docs", "examples", "assets/samples", "assets/gallery", ".git", ".github", ".aws"))
     starter = ROOT / "develop/tests/installed-starter"
     shutil.copytree(package_dir / "template", starter, dirs_exist_ok=True)
     typst("compile", "--root", starter, "--package-path", data_dir / "typst/packages",
@@ -1432,6 +1432,25 @@ def assert_appendix_numbering(output):
     print("PASS appendix numbering: patterns/functions/hidden, appendix-only totals, animations, uncounted backups, handouts and continuous footer override")
 
 
+def assert_outline_fill(output):
+    import re
+    for style in ("list", "cards", "path"):
+        for fill in ("none", "dots"):
+            options = ("--root", ROOT, "--input", f"style={style}", "--input", f"fill={fill}")
+            path = output / f"outline-fill-{style}-{fill}.pdf"
+            typst("compile", *options, "tests/outline-fill.typ", path)
+            pages = pdf_pages(path)
+            assert len(pages) == 5, (style, fill, len(pages))
+            assert bool(re.search(r"\.{4,}", pages[0])) == (fill == "dots"), (style, fill)
+            assert not re.search(r"\.{4,}", pages[1]), (style, fill)
+            assert "––––" in pages[2], (style, fill)
+            assert bool(re.search(r"\.{4,}", pages[4])) == (fill == "dots"), (style, fill)
+            fit = json.loads(typst("eval", *options, "--in", "tests/outline-fill.typ", "--format", "json",
+                'query(<ambrosia-agenda-fit>).map(it => it.value)'))
+            assert len(fit) == 4 and all(e["height"] <= e["available"] + .01 for e in fit)
+    print("PASS outline leaders: theme defaults and local overrides, wrapped labels, list/cards/path, fitted sections and unchanged page counts")
+
+
 def main():
     global PACKAGE_PATH
     parser = argparse.ArgumentParser(description=__doc__)
@@ -1448,6 +1467,7 @@ def main():
     typst("compile", "--root", ROOT, "tests/unit.typ", output / "unit.pdf")
     assert_info_configuration(output)
     assert_appendix_numbering(output)
+    assert_outline_fill(output)
     typst("compile", "--root", ROOT, "tests/defaults.typ", output / "defaults.pdf")
     try:
         typst("compile", "--root", ROOT, "tests/invalid-flavor.typ", output / "invalid-flavor.pdf")

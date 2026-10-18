@@ -38,7 +38,7 @@ An exported SVG preserves the actual slide, including its header/footer, colors,
 ### Get It Without Cloning
 
 Download just
-[render-slide-previews.py](https://github.com/inspiros/touying-ambrosia/raw/refs/heads/main/scripts/render-slide-previews.py)
+[render-slide-previews.py](https://github.com/inspiros/touying-ambrosia/raw/refs/heads/master/scripts/render-slide-previews.py)
 from the project repository. GitHub's **Raw / Download** action also saves the
 single file. Run `python3 render-slide-previews.py --help` after downloading it;
 the file needs Python 3.9+ and the Typst CLI, with no third-party Python packages.

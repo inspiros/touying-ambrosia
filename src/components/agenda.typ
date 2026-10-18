@@ -38,30 +38,33 @@
   result
 }
 
-#let _entry(self, hd, numbered: true) = {
+#let _entry(self, hd, numbered: true, fill: none) = {
   let prefix = if numbered and hd.numbering != none {
     [#std.numbering(hd.numbering, ..hd.numbers)#h(0.3em)]
   } else { [] }
   let slide-number = hd.slide.first()
   let last-main = utils.last-slide-counter.final().first()
   let page-number = if slide-number > last-main { std.numbering("i", slide-number - last-main) } else { str(slide-number) }
-  link(hd.loc, grid(columns: (1fr, auto), column-gutter: 0.7em,
-    [#metadata((target: hd.page, slide: hd.slide.first(), level: hd.level))<ambrosia-agenda-entry>#prefix#hd.body],
-    text(size: 0.7em, page-number),
-  ))
+  let title = [#metadata((target: hd.page, slide: hd.slide.first(), level: hd.level))<ambrosia-agenda-entry>#prefix#hd.body]
+  let number = text(size: 0.7em, page-number)
+  if fill == none {
+    link(hd.loc, grid(columns: (1fr, auto), column-gutter: 0.7em, title, number))
+  } else {
+    link(hd.loc, [#title#h(0.35em)#box(width: 1fr, fill)#h(0.35em)#number])
+  }
 }
 
-#let _rows(self, headings, base-level: 1, numbered: true, focus: false, muted: false) = {
+#let _rows(self, headings, fill: none, base-level: 1, numbered: true, focus: false, muted: false) = {
   set align(left)
   set par(justify: false, leading: 0.55em, spacing: 0.55em)
   for hd in headings {
     let root = hd.level == base-level
-    let fill = if muted { self.colors.primary.transparentize(65%) } else { self.colors.primary }
+    let ink = if muted { self.colors.primary.transparentize(65%) } else { self.colors.primary }
     block(width: 100%, above: 0.35em, below: 0em,
       inset: (left: calc.max(0, hd.level - base-level) * 0.9em), {
-        set text(fill: fill, size: if focus and root { 1.25em } else if muted { 0.85em } else { 1em },
+        set text(fill: ink, size: if focus and root { 1.25em } else if muted { 0.85em } else { 1em },
           weight: if root { "bold" } else { "regular" })
-        _entry(self, hd, numbered: numbered)
+        _entry(self, hd, numbered: numbered, fill: fill)
       },
     )
   }
@@ -69,7 +72,7 @@
 
 // One measured rail owns every node and connector. Labels use a known cap
 // edge, so nodes center on the first line even when a label wraps or grows.
-#let _path(self, headings, base-level: 1, numbered: true, focus: false, active: none) = layout(bounds => context {
+#let _path(self, headings, fill: none, base-level: 1, numbered: true, focus: false, active: none) = layout(bounds => context {
   set align(left)
   set par(justify: false, leading: 0.4em, spacing: 0em)
   let rail = (0.65em).to-absolute()
@@ -88,7 +91,7 @@
       inset: (left: calc.max(0, hd.level - base-level) * 0.9em), {
         set text(size: size, weight: weight, fill: self.colors.primary,
           top-edge: "cap-height", bottom-edge: "baseline")
-        _entry(self, hd, numbered: numbered)
+        _entry(self, hd, numbered: numbered, fill: fill)
       })
     let height = measure(label).height
     rows.push((hd: hd, body: label, y: y + padding, center: y + padding + cap / 2,
@@ -137,12 +140,12 @@
   groups
 }
 
-#let _entries(self, headings, style, base-level: 1, numbered: true, focus: false, active: none) = {
+#let _entries(self, headings, style, fill: none, base-level: 1, numbered: true, focus: false, active: none) = {
   if style == "list" or headings.len() == 0 {
-    return _rows(self, headings, base-level: base-level, numbered: numbered, focus: focus)
+    return _rows(self, headings, fill: fill, base-level: base-level, numbered: numbered, focus: focus)
   }
   if style == "path" {
-    _path(self, headings, base-level: base-level, numbered: numbered, focus: focus, active: active)
+    _path(self, headings, fill: fill, base-level: base-level, numbered: numbered, focus: focus, active: active)
   } else {
     let groups = _branches(headings, base-level)
     let columns = if groups.len() > 1 { 2 } else { 1 }
@@ -155,7 +158,7 @@
           inset: (x: 0.85em, y: 0.6em), {
             [#metadata((active: current))<ambrosia-agenda-card>]
             set text(size: 0.9em)
-            _rows(self, group, base-level: base-level, numbered: numbered, focus: focus)
+            _rows(self, group, fill: fill, base-level: base-level, numbered: numbered, focus: focus)
           })
       }))
   }
@@ -182,9 +185,11 @@
 }
 
 /// Fitted overview. Collapse depth before showing an explicitly marked window.
-#let fitted-outline(self, style: auto, depth: 1, level: none, numbered: true, min-scale: auto,
+#let fitted-outline(self, style: auto, fill: auto, depth: 1, level: none, numbered: true, min-scale: auto,
   start: auto, overflow: "window", selector-filter: sel => sel, body: [],
 ) = layout(bounds => context {
+  let fill = if fill == auto { self.store.outline-fill } else { fill }
+  assert(fill == none or type(fill) in (content, str), message: "Outline fill must be content or none.")
   let minimum = if min-scale == auto { self.store.outline-min-scale } else { min-scale }
   assert(0% < minimum and minimum <= 100%, message: "Outline minimum scale must be between 0% and 100%.")
   assert(depth >= 1, message: "Outline depth must be at least 1.")
@@ -202,7 +207,7 @@
   let choice = (selected: all, before: (), after: (), deeper: ())
   let render(choice, scale) = block(width: width, breakable: false, text(size: text.size * scale, {
     _omission(choice.before, self.colors.muted)
-    _entries(self, choice.selected, treatment, base-level: base, numbered: numbered, active: active)
+    _entries(self, choice.selected, treatment, fill: fill, base-level: base, numbered: numbered, active: active)
     _omission(choice.after + choice.deeper, self.colors.muted)
     if body != [] and body != none { v(0.65em); body }
   }))
@@ -248,9 +253,11 @@
 })
 
 /// Center the current branch, fading only immediate neighbors. Never paginate implicitly.
-#let focused-outline(self, style: auto, depth: 3, level: 1, numbered: true, min-scale: auto,
+#let focused-outline(self, style: auto, fill: auto, depth: 3, level: 1, numbered: true, min-scale: auto,
   neighbors: 1, selector-filter: sel => sel, body: [],
 ) = layout(bounds => context {
+  let fill = if fill == auto { self.store.outline-fill } else { fill }
+  assert(fill == none or type(fill) in (content, str), message: "Outline fill must be content or none.")
   let minimum = if min-scale == auto { self.store.outline-min-scale } else { min-scale }
   assert(0% < minimum and minimum <= 100%, message: "Outline minimum scale must be between 0% and 100%.")
   assert(depth >= level and level >= 1, message: "Section outline depth must include its section level.")
@@ -271,12 +278,12 @@
   let width = bounds.width * 86%
   let scaled(scale, content) = block(width: width, breakable: false, text(size: text.size * scale, content))
   let main(choice, scale) = scaled(scale, {
-    _entries(self, choice.selected, treatment, base-level: level, numbered: numbered, focus: true, active: if root == none { none } else { root.loc })
+    _entries(self, choice.selected, treatment, fill: fill, base-level: level, numbered: numbered, focus: true, active: if root == none { none } else { root.loc })
     _omission(choice.omitted, self.colors.muted)
     if body != [] and body != none { v(0.65em); body }
   })
-  let previous(choice, scale) = scaled(scale, _rows(self, choice.before, base-level: level, numbered: numbered, muted: true))
-  let following(choice, scale) = scaled(scale, _rows(self, choice.after, base-level: level, numbered: numbered, muted: true))
+  let previous(choice, scale) = scaled(scale, _rows(self, choice.before, fill: fill, base-level: level, numbered: numbered, muted: true))
+  let following(choice, scale) = scaled(scale, _rows(self, choice.after, fill: fill, base-level: level, numbered: numbered, muted: true))
   let dimensions(choice, scale) = {
     let middle = measure(main(choice, scale)).height
     let top = if choice.before.len() > 0 { measure(previous(choice, scale)).height + text.size * scale * 0.8 } else { 0pt }

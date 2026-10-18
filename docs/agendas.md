@@ -27,6 +27,30 @@ configure `new-section-slide.with(style: "path")` for path transitions only.
 See the [editable example](../examples/agendas.typ), which includes section
 introductions, a later overview, and appendix material.
 
+## Leaders Between Titles And Slide Numbers
+
+Set `outline-fill` on the theme, or `fill` on one `outline-slide` or
+`new-section-slide`, to insert leaders between each heading and its logical
+slide number:
+
+```typst
+#show: ambrosia-theme.with(outline-fill: repeat[.])
+#outline-slide()                    // inherits the theme
+#outline-slide(fill: none)          // hide leaders for this overview
+#outline-slide(fill: repeat[–])      // custom repeated content
+```
+
+The core default is `outline-fill: none`. The GREYC wrapper defaults to
+`repeat[.]`; set `outline-fill: none` there for an open layout. `fill: auto`
+inherits the theme, and `none` disables it locally. The setting applies to list,
+card, and path entries, including automatic section transitions and quiet
+neighbor rows. Wrapped titles put their leaders and number on the final line;
+selection, fitting, and native links are preserved.
+
+These agendas render custom fitted rows, so a native
+`set outline.entry(fill: ...)` rule does not style them. Such rules still apply
+to native Typst outlines.
+
 ## Selection And Fitting
 
 `depth`, `level`, and `numbered` have the same meaning in every style. Headings

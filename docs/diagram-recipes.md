@@ -8,7 +8,7 @@ Touying nor CetZ and can also render in an ordinary document.
 
 This is an experimental recipe, not an exported `ambrosia-sankey` component.
 To try it online, copy the helper into your own project, or download its
-[source file](https://raw.githubusercontent.com/inspiros/touying-ambrosia/main/examples/helpers/sankey.typ).
+[source file](https://raw.githubusercontent.com/inspiros/touying-ambrosia/master/examples/helpers/sankey.typ).
 There is no need to clone the repository. Examples are excluded from the
 installable package.
 

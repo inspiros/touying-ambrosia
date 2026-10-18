@@ -30,7 +30,8 @@ typst compile --root . --package-path target/package-data/typst/packages example
 Tests and artwork generators manage their own isolated preview overrides.
 
 ```sh
-python3 tests/run.py
+python3 tests/ci.py  # bounded checks used by GitHub Actions
+python3 tests/run.py  # exhaustive local matrix
 python3 -m unittest discover -s tests -p 'test_*.py'
 python3 scripts/render-previews.py --update-pdfs
 ```

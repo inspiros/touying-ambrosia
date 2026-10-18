@@ -106,3 +106,23 @@ The earlier boolean `navigator` is now `navigation-buttons`, with corresponding
 helper is `ambrosia-navigation-buttons` / `ambrosia.navigation-buttons`.
 
 
+
+## Presenter Workflow Checks
+
+`python3 tests/check_speaker_notes.py` verifies audience output, sidecar notes,
+animation-frame mapping, typeset notes, and split-page dimensions. Add `--bundle`
+to test the experimental single-compilation PDF/sidecar export. These checks
+need Poppler and Typst, and accept `--package-path` for isolated dependencies;
+they do not launch a graphical pdfpc session. See the
+[user workflow](../speaker-notes.md).
+
+## Continuous Integration
+
+GitHub Actions runs `python3 tests/ci.py` and the Python installation tests on
+pushes, pull requests, and manual dispatch. The bounded suite covers every flavor
+in light/dark palettes, nested blocks/citations, appendix numbering, outlines,
+metadata, structural navigators, SVG previews, speaker-note exports, the manual,
+and a copied installed starter. The exhaustive `tests/run.py` matrix and optional
+Pergamon recipe checks remain available locally. CI pins Typst 0.15.1 and uses
+read-only repository permissions; it does not publish, tag, or rebuild committed
+artwork. Workflow files are excluded from runtime installations.

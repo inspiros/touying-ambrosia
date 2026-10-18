@@ -170,6 +170,10 @@ Footcite includes a full reference at the foot of its first logical slide and re
 
 For conventional citation formatting, set `cite-marker: "native"` and `bibliography-marker: "native"`, then choose your bibliography style. Explicit `cite(..., style: "apa")` remains available. See [citation controls and limitations](docs/utilities.md).
 
+Selected publication lists with highlighted author names are available as an
+[optional Pergamon recipe](docs/publications.md) ([example](examples/publications.typ)).
+Normal Ambrosia decks have no Pergamon dependency.
+
 ## Authors And Branding
 
 Structured authors link to institutions through configurable superscripts and can have individual email addresses. Set `affiliation-numbering: "*"` for native footnote symbols, `"1"` for numbers, or supply a numbering function. Shared emails, short footer names, and repeated covers are supported. See [metadata](docs/people.md).
@@ -219,6 +223,8 @@ Use `agenda-style: "cards"` or `"path"` on the theme; `style:` on
 the compact default. Cards suit short talks and fall back to the list for a long
 agenda. All styles preserve links, logical slide numbers, measured fitting,
 section introductions, and main/appendix scope.
+Use `outline-fill: repeat[.]` on the theme or `outline-slide(fill: repeat[.])` for dotted leaders.
+
 [Guide](docs/agendas.md) · [Editable Example](examples/agendas.typ)
 
 ## Navigation
@@ -242,6 +248,15 @@ Header choices are `"tabs"`, `"dots"`, `"context"`, `"tree"` (a stacked current 
 Tree keeps the current path visible in two or three rows. The slide title stays
 below it; `navigation-depth: 1` limits Cambridge to the talk/section pair.
 
+## Presenter Notes
+
+Use Touying's `speaker-note` with an ordinary PDF and a matching `.pdfpc` file
+for private notes in pdfpc. A split-page PDF instead needs the viewer's
+`--notes=right` (or matching side) option; opening it normally displays both halves.
+See the [workflow guide](docs/speaker-notes.md) and
+[editable example](examples/speaker-notes.typ), including an optional Typst bundle
+export that writes both files together.
+
 ## Sharing The Theme
 
 `#ambrosia-credit-card()` is an optional, palette-aware card with the package
@@ -259,7 +274,7 @@ SVGs included in the package, so online users need no generator. See
 
 `ambrosia-slide-preview` places a clickable framed thumbnail of another slide. It supports forward/backward targets and selected animation frames. Exact snapshots use exported SVGs; placeholders keep the source editable before generation. A small optional Python/Typst script builds the requested previews without replaying live counters or citations in the host slide. See [the guide](docs/slide-previews.md) and [example](examples/slide-previews.typ).
 
-No clone or PyPI installation is needed: [download the single helper file](https://github.com/inspiros/touying-ambrosia/raw/refs/heads/main/scripts/render-slide-previews.py).
+No clone or PyPI installation is needed: [download the single helper file](https://github.com/inspiros/touying-ambrosia/raw/refs/heads/master/scripts/render-slide-previews.py).
 It runs locally with Python and the Typst CLI. Browser-only projects can use
 uploaded slide images; exact snapshots require a local export somewhere and
 uploading the resulting SVGs/manifest. The Universe import cannot run Python.
@@ -282,7 +297,9 @@ Open an example in Tinymist or another Typst IDE and start its preview. Its `@pr
 | [title layouts](examples/title-layouts.typ) | Independent cover presets, header-only logos, equal partners, and local overrides |
 | [ending layouts](examples/ending-layouts.typ) | Closing messages, takeaways/contact cards, photograph covers, and local overrides |
 | [credits](examples/credits.typ) | Optional package credits, static QR codes, and acknowledgement composition |
+| [publications](examples/publications.typ) | Optional Pergamon lists, structured author highlighting, and journal filtering |
 | [agendas](examples/agendas.typ) | Overview/divider styles, shared fitting, current-section focus, and local overrides |
+| [speaker notes](examples/speaker-notes.typ) | Private pdfpc sidecars, split/notes-only output, and optional bundle export |
 | [navigation](examples/navigation.typ) | Configurable header/sidebar navigation, breadcrumbs, buttons, and section progress |
 | [slide-previews](examples/slide-previews.typ) | Clickable slide thumbnails, forward links, and selected animation frames |
 | [image captions](examples/image-slides.typ) | Native band/corner placement, widths, margins, and light panels |

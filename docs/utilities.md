@@ -232,6 +232,13 @@ It accepts native image arguments plus `fit` (default `"cover"`) and per-slide `
 
 See [presentation patterns](presentation-patterns.md) for other slide compositions.
 
+## Speaker Notes
+
+Touying's `speaker-note` is already available. For private presenter notes use
+an ordinary slide PDF with its `.pdfpc` sidecar, or configure a compatible viewer
+to split a double-page notes PDF. See the [presenter workflow](speaker-notes.md)
+and [editable example](../examples/speaker-notes.typ).
+
 ## Appendix
 
 ```typst
@@ -260,3 +267,9 @@ Use theme `ending-layout` or per-slide `layout` for centered, plain, split
 takeaway/contact, and cover compositions. `ambrosia-ending-layout` adjusts their
 geometry without a new flavor; `contacts` and `logos` override one closing.
 See [ending layouts](ending-layouts.md).
+
+## Selected Publications
+
+For a presenter's own works with highlighted author names, see the optional
+[publication recipe](publications.md) and [editable example](../examples/publications.typ).
+It imports Pergamon explicitly and keeps native citations independent.

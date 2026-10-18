@@ -14,9 +14,11 @@ functions and their scoped equivalents.
 
 ## Guide The Audience
 
+- [Speaker Notes](speaker-notes.md): private pdfpc notes, split pages, and export workflows.
 - [Navigation](navigation.md): bands, sidebars, rails, buttons, and progress.
 - [Agendas](agendas.md): fitted lists, cards, and paths.
 - [Navigation Families](beamer-navigation.md): how the choices compare.
+- [Selected Publications](publications.md): optional author highlighting and filtering with Pergamon.
 - [Presentation Patterns](presentation-patterns.md): composing ordinary slides.
 
 ## Build Your Content

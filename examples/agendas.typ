@@ -9,6 +9,7 @@
 #set heading(numbering: "1.1")
 #show: project-theme.with(
   palette: palette,
+  outline-fill: none, // change to repeat[.] for dotted leaders
   agenda-style: style, // default for BOTH overviews and automatic section dividers
   font: "DejaVu Sans",
   config-common(new-section-slide-fn: new-section-slide.with(neighbors: 1)),

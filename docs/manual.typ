@@ -63,7 +63,7 @@ one does not constrain the others.
   ([`minimal`, `simple`], [Quiet defaults or a spacious classic treatment.]),
   ([`dewdrop`, `stargazer`], [Lightweight dot navigation or accent headings with section tabs.]),
   ([`darmstadt`, `cambridge`], [Structured bands; Cambridge uses level-three slide headings.]),
-  ([`portico`], [A metadata band and contrasting right outline panel.]),
+  ([`portico`], [A metadata band and optional contrasting right outline panel.]),
 ))
 
 == Twelve Starting Palettes
@@ -207,6 +207,8 @@ Long navigators window around the current location rather than growing forever.
 `agenda-style` chooses `"list"`, `"cards"`, or `"path"` for the opening outline
 and automatic section transitions. `outline-slide(style: ...)` overrides one
 view. Cards suit a short talk; crowded cards fall back to the compact list.
+Set `outline-fill: repeat[.]` on the theme, or `fill:` on one overview/divider,
+for dotted leaders. The core default is `none`.
 
 Section dividers center the current section and expanded children, with quiet
 neighbors (`neighbors: 0`, `1`, or `2`). Fitting removes neighbors and excess depth
@@ -298,6 +300,9 @@ can be labeled and selected with a bibliography's `target`. Unscoped keys retain
 #bibliography-slide("methods.bib",
   target: <methods-citation>, group: none)
 ```)
+Author-highlighted publication lists use an optional Pergamon
+#guide("docs/publications.md", [recipe and example]); ordinary decks do not import it.
+
 #guide("docs/utilities.md", [Citation behavior and multiple bibliographies]) ·
 #guide("examples/utilities.typ", [Citation example])
 
@@ -397,11 +402,17 @@ Dates appear only when metadata supplies one. The footer reserves the complete
 date and slide count, then fits author/title down to `footer-min-scale: 80%`
 before clipping with an ellipsis. Covers use the full metadata.
 
-Touying's `#speaker-note[...]` and output switches remain available. Use
-`config-common(handout: true)` to retain the last animation frame per slide, `show-only-notes: true`
-for notes, or `show-notes-on-second-screen: right` for a presenter view. Navigation
-is suppressed in handout/notes output. Second-screen chrome stays in the slide
-half. See the #guide("tests/slides.typ", [output regression example]) for setup.
+Touying's `#speaker-note[...]` stays invisible in ordinary slide output. Export
+its matching `.pdfpc` sidecar to get private notes in pdfpc. The
+#guide("docs/speaker-notes.md", [presenter guide]) and
+#guide("examples/speaker-notes.typ", [editable example]) show both commands and
+an optional single-compilation bundle export.
+
+`config-common(show-notes-on-second-screen: right)` creates a double-width PDF;
+launch it with #box[`pdfpc --notes=right`] to separate audience and notes halves.
+A normal viewer displays both. `show-only-notes: true` creates a rehearsal
+page with a slide thumbnail. `handout: true` keeps each slide's last animation
+frame. Use an extended desktop for separate presenter/projector views.
 
 == Linked Miniature Slides
 #source(```typst

@@ -62,7 +62,7 @@ Rewrite the submission README, without changing the personal repository README:
 - Relative documentation, example, PDF, and contributing links become GitHub
   `blob/<tag>/...` URLs in the matching source repository.
 - Markdown images and HTML `src` / `srcset` artwork use raw URLs at that tag.
-- Links already pointing at a project's `main` branch, including standalone
+- Links already pointing at a project's `master` or `main` branch, including standalone
   helper downloads, must also be pinned. Cross-project links use the other
   project's version: GREYC documentation points to core `v0.1.0`.
 - Keep `LICENSE` and runtime source links local where those files are included;
