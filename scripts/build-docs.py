@@ -95,7 +95,7 @@ def example_html(name, example):
 <p class="example-downloads"><a href="examples/{example['source']}" download>Full Source</a>{resources}</p>
 </div>
 <figure class="example-output">
-<div class="example-label">Output <a href="examples/{name}.png">Full Size ↗</a></div>
+<div class="example-label">Output <button class="example-zoom" data-image="examples/{name}.png" type="button" aria-label="Enlarge output">Enlarge ⤢</button></div>
 <a class="example-image" href="examples/{name}.png"><img src="examples/{name}.png"
   alt="{html.escape(example['alt'])}" width="1684" height="947" loading="lazy"></a>
 <figcaption>{caption}</figcaption>
@@ -118,6 +118,8 @@ def stage_sources():
     assert used == set(examples), ("Missing or unused example definitions", used ^ set(examples))
     render_examples(examples)
     files = {"SUMMARY.md": summary.encode()}
+    for variant in ("touying-ambrosia.svg", "touying-ambrosia-dark.svg"):
+        files[f"assets/logos/{variant}"] = (ROOT / "assets/logos" / variant).read_bytes()
 
     def link(url, chapter, image=False):
         parts = urlsplit(html.unescape(url))
@@ -155,7 +157,7 @@ def stage_sources():
         text = re.sub(r"^```typ(?:st)?\n(.*?)^```[ \t]*$",
             lambda m: '<pre><code class="nohighlight ambrosia-typst">'
                 + html.escape(m[1]).replace("\n", "&#10;") + '</code></pre>', text, flags=re.M | re.S)
-        banner = f'<p class="docs-version">Ambrosia {version} <span>·</span> Typst 0.15+ <span>·</span> Touying 0.8.0</p>\n\n'
+        banner = f'<p class="docs-version">The Ambrosia Guide <span>/</span> {version} <a href="{REPOSITORY}/blob/{ref}/docs/manual.pdf">PDF Manual ↗</a></p>\n\n'
         files[chapter] = (banner + text).encode()
     for name, example in examples.items():
         files[f"examples/{name}.png"] = (CACHE / f"{name}.png").read_bytes()
@@ -249,6 +251,9 @@ def main():
     if not shutil.which(args.mdbook):
         parser.error("Install mdBook 0.5.4: cargo install mdbook --version 0.5.4 --locked (or use --mdbook PATH).")
     version = stage_sources()
+    # mdBook does not remove pages dropped from SUMMARY; avoid shipping stale chapters.
+    if BOOK.exists():
+        shutil.rmtree(BOOK)
     command(args.mdbook, "build", SITE)
     check_book()
     if args.pages:

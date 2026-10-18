@@ -1,6 +1,6 @@
 # Public API
 
-Use familiar names for presentation operations and inline emphasis (`alert`, `muted`, `subtle`), and package-specific names for generic custom utilities. Prefixing every function would make Touying authoring unnecessarily verbose.
+Use the prefixed names with wildcard imports, or the scoped `ambrosia` API when combining libraries.
 
 | Family | Global names | Scoped equivalents |
 | --- | --- | --- |
@@ -22,7 +22,7 @@ Use familiar names for presentation operations and inline emphasis (`alert`, `mu
 The scoped import is convenient when combining several packages:
 
 ```typst
-#import "../src/lib.typ": ambrosia-theme, ambrosia
+#import "@preview/touying-ambrosia:0.1.0": ambrosia-theme, ambrosia
 #show: ambrosia-theme.with(
   flavor: "minimal", palette: "ocean",
   ambrosia.config-info(title: [Research], author: [Presenter]),
@@ -33,17 +33,8 @@ The scoped import is convenient when combining several packages:
 ]
 ```
 
-Use a local package identifier instead of the relative import when installed. A wildcard import remains available; if directly importing Touying as well, import Ambrosia after it to select Ambrosia's presentation overrides.
+A wildcard import remains available; if directly importing Touying as well, import Ambrosia after it to select Ambrosia's presentation overrides.
 
 The entrypoint exports the intended custom API explicitly. Institution wrappers use the supported `extensions` module and `ambrosia-flavor` builder. Other internal source paths are implementation details.
 
 `agenda-style` configures overview and automatic section-divider bodies together; either helper accepts a local `style:` override. See [agendas](agendas.md).
-
-## Naming Conventions
-
-- `tblock` becomes `ambrosia-block` or `ambrosia.block`.
-- `framed-tblock` becomes the same container with `style: "framed"`.
-- `badge`, `source-note`, and `shadow` use the custom names above.
-- `footnote-cite` becomes `footcite`.
-
-These historical spellings are not exported by the core.

@@ -82,7 +82,10 @@ Insert this into the relevant Markdown guide:
 ```
 
 GitHub shows the fallback source link. The website replaces the complete region
-with copyable, highlighted source and the actual compiled PNG. A build fails if
+with copyable, highlighted source and the actual compiled PNG. Code pairs use
+the same panel and syntax colors as standalone code. All slide/gallery previews
+open in a native dialog: Escape closes it; Actual Size enables full-resolution
+inspection without navigating away. A build fails if
 the source does not compile, its requested page is missing, a registered example
 is unused, or a local HTML link/image/anchor is broken. Typst examples render
 again when package code or example inputs change; ordinary prose/CSS edits reuse

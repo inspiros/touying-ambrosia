@@ -23,10 +23,8 @@ To start without branding, create a new Typst file with this complete example:
 [Editable source](site/examples/first-deck.typ).
 <!-- /ambrosia-example -->
 
-The source and output panels show the same example. Copy buttons copy plain Typst
-source. The full source download includes any setup omitted from a short snippet.
-Previews are compiled during documentation builds; this website does not execute
-your code. Paste it into your own Typst project to experiment.
+Copy the snippet or download its complete source to try it in your editor.
+Click any preview to enlarge it without leaving the guide.
 
 ## Add Content And Reveals
 

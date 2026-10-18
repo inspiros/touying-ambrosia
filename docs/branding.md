@@ -1,59 +1,46 @@
-# Primary And Partner Logos
+# Branding
 
-`primary-logos` identifies the presenter or joint project. It follows the
-flavor's ordinary header/footer placement, and is used by native section,
-focus, and ending slides. `logos` is the partner collection, normally shown
-only on the opening. Neither collection requires an institution type.
+The core starts unbranded. Supply native images or `self => content` callbacks:
 
 ```typst
 #show: ambrosia-theme.with(
   primary-logos: (image("lab.svg"), image("project.svg")),
-  logos: (image("university.svg"), image("funder.svg")),
+  logos: (image("university.svg"),),
   title-logo-distribution: "grouped",
-  config-info(title: [A Joint Presentation], author: [Presenter]),
 )
 ```
 
-`primary-logos: auto` (the default) uses `config-info(logo: ...)`. An explicit
-collection replaces that fallback; `none` or `()` removes it. Arrays preserve
-order; dictionaries use their values in insertion order. The core has no
-built-in marks. See the [editable example](../examples/branding.typ).
+| Option | Role |
+| --- | --- |
+| `primary-logos` | Repeated marks in the flavor's ordinary logo positions. |
+| `logos` | Opening partners. |
+| `title-logos` | Complete replacement for the opening collection. |
+| `ending-logos` | Complete replacement for closing marks. |
 
-Ordinary header/footer rows give the primary collection at most 30% of their
-available width. The strip shrinks together when necessary, retaining aspect
-ratios and space for the title/navigation. Flavors with no ordinary logo
-placement retain that choice; `footer-logo: true` opts into a reserved footer
-row. Custom `header-logo` / `logo-focus` content overrides the automatic strip
-at that placement; `auto` restores it.
+`primary-logos: auto` falls back to `config-info(logo: ...)`.
+`none` or `()` removes a collection. Entries keep their order and proportions;
+ordinary header/footer strips use at most 30% of the available width.
 
-## Horizontal Title Rows
+## Title Rows
 
-The default `title-logo-distribution: "equal"` keeps equally bounded cells.
-`"grouped"` puts primary marks against the left edge and partners against the
-right, with flexible space between. Groups retain their internal order; a
-missing group leaves the other against its own edge. Both groups share one
-bounded row and shrink together if crowded.
+`title-logo-distribution: "equal"` (default) gives bounded equal cells.
+`"grouped"` places primary marks left and partners right in horizontal rows.
+The featured layout gives primaries their own larger region and centers partners;
+split panels retain their vertical grid.
 
-This applies to above/below rows and header bands. Split panels retain their
-vertical grid. The featured layout promotes all primary marks to its large
-region; partners keep a smaller centered equal-cell grid, independently of
-grouped distribution. A descriptor overrides the theme:
+An explicit flat `title-logos` list has no role metadata: its first entry is
+primary in grouped/featured layouts. Use `primary-logos` to feature several marks.
+See [title layouts](title-layouts.md) for sizing and placement.
 
-```typst
-#title-slide(layout: ambrosia-title-layout(base: "header",
-  logos-distribution: "equal"))
-```
+## Adapt To Dark Surfaces
 
-`title-logos` / per-slide `logos` replaces the complete opening collection.
-Since a flat replacement has no role metadata, its first entry becomes primary
-for grouped/featured rendering. To feature several marks, use `primary-logos`
-and leave `title-logos: auto`. `ending-logos` remains a complete local override;
-its automatic value collects all primary marks.
+A callback receives the actual backing surface in
+`self.store.logo-background`. Use `palettes.prefer-light(...)` to select a light
+or dark asset; a dark header can occur in a light palette.
 
-## Adaptive Artwork
+Caller-owned `image(...)` paths stay relative to the caller. An institution
+wrapper should read its own assets before passing bytes or content to the core.
+Custom `header-logo` / `logo-focus` content replaces the automatic strip at that
+position; `auto` restores it.
 
-Entries can be native image content or `self => content` callbacks. Callbacks
-receive the actual surface as `self.store.logo-background`, including dark
-headers on light slides. Select variants with `palettes.prefer-light(...)`.
-Keep caller-relative paths by passing native `image(...)` content, or read
-wrapper-owned assets in the wrapper itself.
+[Editable branding](../examples/branding.typ) · [Footer logos](people.md#footer-labels-and-logos)

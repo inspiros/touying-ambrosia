@@ -20,21 +20,19 @@
 
 - [Navigation](navigation.md)
 - [Agendas](agendas.md)
-- [Navigation Families](beamer-navigation.md)
 - [Speaker Notes](speaker-notes.md)
 
 # Build Your Content
 
-- [Blocks, Text, And Citations](utilities.md)
+- [Blocks And Text](utilities.md)
+- [Citations](citations.md)
 - [Image Slides](image-slides.md)
 - [Roadmaps](roadmap.md)
 - [Linked Slide Previews](slide-previews.md)
 - [Theme Credits](credits.md)
-- [Selected Publications](publications.md)
-- [Presentation Patterns](presentation-patterns.md)
-- [Experimental Diagram Recipes](diagram-recipes.md)
+- [Slide Helpers](presentation-patterns.md)
 
 # Reference
 
 - [Public API](api.md)
-- [Custom Flavors And Institution Wrappers](extensions.md)
+- [Create Your Own Theme](extensions.md)
