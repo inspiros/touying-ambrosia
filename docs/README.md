@@ -19,10 +19,11 @@
 
 [**Build Your Content** Use blocks, text helpers, and annotations.](utilities.md)
 
-[**Find An Option** Browse public names and their configuration guides.](api.md)
+[**Browse The API** Find slide helpers, components, and configuration options.](api.md)
 
 </div>
 
 For offline reading, use the [short PDF manual](manual.pdf).
+For AI-assisted drafting, install the optional [agent skill](agent-skill.md).
 The [complete starter](../template/template.typ) and [demo](../examples/demo.typ)
 are editable in a Typst IDE. Requires **Typst 0.15+** and uses **Touying 0.8.0**.

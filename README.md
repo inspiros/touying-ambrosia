@@ -19,6 +19,9 @@ Its slide snapshots are bundled, so ordinary compilation needs no preview-genera
 
 [Browse the demo](examples/demo.pdf) · [See linked slide previews](examples/slide-previews.pdf)
 
+[Browse the API](docs/api.md) · [Draft with an agent](docs/agent-skill.md)
+using the optional [Ambrosia skill](skills/touying-ambrosia).
+
 ## Start A Presentation
 
 ```typst

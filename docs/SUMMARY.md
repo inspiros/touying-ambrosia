@@ -6,6 +6,7 @@
 
 - [Your First Presentation](getting-started.md)
 - [How Configuration Fits Together](configuration.md)
+- [API Index](api.md)
 
 # Design Your Slides
 
@@ -34,5 +35,5 @@
 
 # Reference
 
-- [Public API](api.md)
+- [Draft With An Agent](agent-skill.md)
 - [Create Your Own Theme](extensions.md)

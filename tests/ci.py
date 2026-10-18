@@ -39,6 +39,8 @@ def main():
     subprocess.run([sys.executable, str(ROOT / "tests/check_speaker_notes.py"), "--bundle",
                     "--package-path", str(checks.PACKAGE_PATH)], check=True)
     checks.typst("compile", "--root", ROOT, "docs/manual.typ", output / "manual.pdf")
+    checks.typst("compile", "--root", ROOT, "skills/touying-ambrosia/assets/starter.typ",
+                 output / "agent-starter.pdf")
     print("Bounded CI checks passed. Run tests/run.py for the exhaustive matrix.")
 
 

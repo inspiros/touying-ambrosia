@@ -1,0 +1,4 @@
+interface:
+  display_name: "Touying Ambrosia"
+  short_description: "Draft and refine slides with Touying Ambrosia"
+  default_prompt: "Use $touying-ambrosia to draft a presentation with the Ambrosia theme."

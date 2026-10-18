@@ -109,3 +109,18 @@ Keep the PDF manual concise. The Markdown guides are the detailed public source;
 there is no second set of prose to synchronize for the website. Website files
 already live under the excluded `docs/`, `scripts/`, and `.github/` directories,
 so the prepared Universe submission only needs its README link updated.
+
+## Agent Guidance
+
+`skills/touying-ambrosia/` is a portable consumer skill, distributed from GitHub
+and excluded from the Typst package. `docs/agent-skill.md` explains installation
+and invocation; it deliberately links to the development branch because the
+initial release tag predates the skill. Future releases can pin that link to
+a tag that includes it.
+
+Keep `SKILL.md` focused on authoring decks. The starter and optional recipes
+must use exported APIs; update their supported version and documentation links
+alongside API changes. `tests/ci.py` compiles the starter against an isolated
+package install. Compile changed recipes too, and check installation in a
+disposable project when changing the bundle structure. Do not add maintenance
+or release instructions to the consumer skill.
