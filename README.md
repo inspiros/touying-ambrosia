@@ -249,12 +249,12 @@ Header choices are `"tabs"`, `"dots"`, `"context"`, `"tree"` (a stacked current 
 Tree keeps the current path visible in two or three rows. The slide title stays
 below it; `navigation-depth: 1` limits Cambridge to the talk/section pair.
 
-## Presenter Notes
+## Extra: Presenter Notes
 
-Use Touying's `speaker-note` with an ordinary PDF and a matching `.pdfpc` file
-for private notes in pdfpc. A split-page PDF instead needs the viewer's
-`--notes=right` (or matching side) option; opening it normally displays both halves.
-See the [workflow guide](docs/speaker-notes.md) and
+Presenter notes are a Touying feature, re-exported by Ambrosia. Use a compatible
+presenter viewer or editor; pdfpc is one option. Split-page PDFs need a viewer
+that separates audience slides from the notes region; ordinary viewers display
+both. See the [optional workflow guide](docs/speaker-notes.md) and
 [editable example](examples/speaker-notes.typ), including an optional Typst bundle
 export that writes both files together.
 

@@ -38,7 +38,6 @@ These helpers keep the same names inside `ambrosia`, such as
 | `ambrosia-slide-preview` | `ambrosia.slide-preview` | [Linked Slide Previews](slide-previews.md) |
 | `ambrosia-navigation-buttons` | `ambrosia.navigation-buttons` | [Transparent Buttons](navigation.md#transparent-buttons) |
 | `ambrosia-credit-card` | `ambrosia.credit-card` | [Theme Credits](credits.md) |
-| `speaker-note` | `ambrosia.speaker-note` | [Speaker Notes](speaker-notes.md) |
 
 ## Configuration And Descriptors
 
@@ -56,6 +55,8 @@ These helpers keep the same names inside `ambrosia`, such as
 Touying configuration and animation helpers are re-exported. Start with
 [content and reveals](getting-started.md#add-content-and-reveals) for `pause`
 and the [Touying documentation](https://touying-typ.github.io/) for their full API.
+Its re-exported `speaker-note` (`ambrosia.speaker-note`) is covered separately
+in [Extras: Presenter Notes With Touying](speaker-notes.md).
 `agenda-style` configures overview and automatic section-divider bodies
 together; either helper accepts a local `style:` override.
 

@@ -3,6 +3,12 @@
 `ambrosia-slide-preview` places a clickable thumbnail of another slide. It
 supports forward/backward links and a selected animation frame.
 
+![A Connections slide containing two framed thumbnails, linking back to The Main Idea and forward to The Result](../assets/gallery/component-slide-preview.webp)
+
+The [complete example](../examples/slide-previews.typ) links to an earlier
+slide's final frame and a later result. The screenshot shows the arrangement;
+the links are interactive in the [compiled PDF](../examples/slide-previews.pdf).
+
 ```typst
 == The Result <result>
 The evidence.

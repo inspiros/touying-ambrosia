@@ -101,7 +101,9 @@ visual checks that the environment could not perform.
 
 ## Optional Features And Limits
 
-- `speaker-note[...]` is private metadata by default. pdfpc requires a matching
+- Touying's re-exported `speaker-note[...]` is private metadata by default.
+  Presenter tools can consume notes through their supported workflows; pdfpc
+  is one option and requires a matching
   exported sidecar. A split slide/notes PDF visibly contains both halves in an
   ordinary viewer. Follow the [notes guide](https://inspiros.github.io/touying-ambrosia/v0.1.0/speaker-notes.html)
   when presenter notes are requested.

@@ -1,7 +1,12 @@
-# Speaker Notes
+# Extra: Presenter Notes With Touying
 
-`speaker-note` stores presenter notes. Keep an ordinary slide PDF and export a
-matching `.pdfpc` sidecar for private notes in pdfpc:
+Presenter notes and notes-output modes come from **Touying** and are
+re-exported by Ambrosia. This optional workflow is independent of the theme.
+You can use a compatible presenter viewer or editor; pdfpc is one option.
+See [Touying's documentation](https://touying-typ.github.io/) for its broader
+presentation and export workflows.
+
+`speaker-note` stores notes alongside the slide content:
 
 ```typst
 #slide(title: [The Main Result])[
@@ -16,7 +21,20 @@ matching `.pdfpc` sidecar for private notes in pdfpc:
 Notes accumulate across frames. `speaker-note(subslide: 1)[...]` restricts a note
 to the first frame; `subslide: none` applies it to every frame.
 
-## Private Presenter View
+## Choose An Output
+
+| Output | Use |
+| --- | --- |
+| Ordinary PDF with note metadata | Audience slides; a compatible tool must read the notes separately. |
+| Split slide/notes PDF | Presenter software that separates the page into audience and notes regions, such as pympress or pdfpc. |
+| Notes-only document | Rehearsal or printing. |
+
+An ordinary PDF viewer has no private presenter pane. With a split PDF it
+shows **both halves**; use presenter software and an extended display to send
+only the slide region to the audience. Share the ordinary PDF without visible
+notes when distributing the deck.
+
+## One Option: Private Notes In pdfpc
 
 With the default theme settings, notes are metadata and are not painted into the
 PDF. For a source named `talk.typ`:
@@ -32,7 +50,7 @@ settings for both exports and regenerate them after edits. Leave `enable-pdfpc`
 enabled. `speaker-note(mode: "md")` exports Markdown; arbitrary Typst graphics
 are better suited to typeset notes.
 
-## Typeset Notes And Handouts
+## Touying's Typeset Notes And Handouts
 
 | `config-common` option | Output |
 | --- | --- |
@@ -40,13 +58,12 @@ are better suited to typeset notes.
 | `show-only-notes: true` | Rehearsal/print notes with slide thumbnails. |
 | `handout: true` | Final animation frame of each logical slide. |
 
-For a split PDF, launch pdfpc with `--notes=right` (or the corresponding side).
-Opening it in an ordinary viewer shows **both halves**. Share the ordinary PDF
-when distributing slides without visible notes.
+For a split PDF, select its notes region in your presenter software. In pdfpc,
+use `--notes=right` (or the corresponding side).
 
-Use an extended desktop and project the audience window. `pdfpc --switch-screens`
-exchanges the displays. A notes-only PDF needs an external synchronized viewer;
-it does not make ordinary PDF content private.
+Project the audience window. In pdfpc, `--switch-screens` exchanges the
+displays. A notes-only document does not synchronize a second audience PDF
+on its own.
 
 ## Optional Bundle Export
 

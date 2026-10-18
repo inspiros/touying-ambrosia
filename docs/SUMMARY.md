@@ -21,7 +21,6 @@
 
 - [Navigation](navigation.md)
 - [Agendas](agendas.md)
-- [Speaker Notes](speaker-notes.md)
 
 # Build Your Content
 
@@ -32,6 +31,10 @@
 - [Linked Slide Previews](slide-previews.md)
 - [Theme Credits](credits.md)
 - [Slide Helpers](presentation-patterns.md)
+
+# Extras
+
+- [Presenter Notes With Touying](speaker-notes.md)
 
 # Reference
 

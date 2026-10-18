@@ -5,6 +5,11 @@
 `alt`, and other image arguments retain native Typst behavior and resolve from
 the calling document.
 
+![Four image slides comparing bottom and top caption bands with top-right and bottom-left inset cards](../assets/gallery/image-captions.webp)
+
+The same image with four caption placements. The [editable comparison](../examples/image-slides.typ)
+includes all four; click the image to enlarge it.
+
 The default remains a bottom band:
 
 ```typst
