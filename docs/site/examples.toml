@@ -1,0 +1,68 @@
+[first-deck]
+source = "first-deck.typ"
+page = 1
+context = "Complete document"
+alt = "An unbranded ocean-colored title slide with title, subtitle, and presenter."
+
+[reveals]
+source = "reveals.typ"
+page = 2
+context = "Inside a configured presentation"
+caption = "Final animation frame."
+alt = "A slide with a claim and a second line of evidence revealed beneath it."
+
+[configuration]
+source = "configuration.typ"
+page = 1
+context = "Complete document"
+alt = "A dark slide using Minimal geometry with a separate right sidebar navigator."
+
+[blocks]
+source = "blocks.typ"
+page = 2
+context = "Inside a slide"
+caption = "Final animation frame; the same pause also reveals nested content."
+alt = "A green tabbed block containing a nested outlined block and evidence."
+
+[palette]
+source = "palette.typ"
+page = 1
+context = "Inside a configured presentation"
+alt = "A palette showcase with green accent and labeled color-role swatches."
+
+[text]
+source = "text.typ"
+page = 1
+context = "Inside a slide"
+alt = "Text with alert, muted, and subtle emphasis, two status badges, and a source note."
+
+[people]
+source = "people.typ"
+page = 1
+context = "Inside a configured presentation"
+alt = "A header-style title slide with four authors, linked symbolic affiliations, and emails."
+
+[navigation]
+source = "navigation.typ"
+page = 2
+context = "Inside a configured presentation"
+alt = "A Cambridge slide with thin tree strips for the talk, section, and subsection."
+
+[roadmap]
+source = "roadmap.typ"
+page = 1
+context = "Inside a slide"
+alt = "A six-week project roadmap with overlapping tracks and a milestone at four and a half weeks."
+
+[credits]
+source = "credits.typ"
+page = 1
+context = "Inside a slide"
+alt = "A small optional Ambrosia credit card with logo and a repository QR code."
+
+[citations]
+source = "citations.typ"
+page = 1
+context = "Inside a configured presentation; also download references.bib"
+resources = ["references.bib"]
+alt = "Native and footnote citations sharing the compact Knuth1984 marker, with a full reference below."

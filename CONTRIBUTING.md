@@ -34,6 +34,7 @@ python3 tests/ci.py  # bounded checks used by GitHub Actions
 python3 tests/run.py  # exhaustive local matrix
 python3 -m unittest discover -s tests -p 'test_*.py'
 python3 scripts/render-previews.py --update-pdfs
+python3 scripts/build-docs.py --serve  # searchable manual with live reload
 ```
 
 General regression tests live here; institution wrappers only need their branding/integration checks. Disposable experiments belong in `develop/`, generated output in `target/`. The selected release PDFs are exceptions: `docs/manual.pdf`, `examples/demo.pdf`, and `examples/slide-previews.pdf` are committed beside their sources. See [development](docs/maintainers/development.md), [release preparation](docs/maintainers/releasing.md), and [CHANGELOG](CHANGELOG.md).
@@ -44,3 +45,6 @@ native renderer layer for poster/thesis themes, with thin document-specific adap
 
 The [maintainer index](docs/maintainers/README.md) collects implementation,
 artwork, architecture, and release notes.
+
+See [the website guide](docs/maintainers/website.md) for mdBook installation,
+GitHub Pages activation, and adding compiled code/output examples.

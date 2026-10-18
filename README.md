@@ -10,7 +10,9 @@ Ambrosia takes its name from the food of the Greek gods: one theme, many flavors
 
 [Start from the template on Typst Universe](https://typst.app/universe/package/touying-ambrosia), or import the package in an existing presentation.
 
-Read the [user guide](docs/README.md) or [illustrated manual](docs/manual.pdf) for a
+Read the **[online manual](https://inspiros.github.io/touying-ambrosia/v0.1.0/)**
+for searchable guides with copyable code beside rendered slides, or use the
+[user guide sources](docs/README.md) and [illustrated PDF manual](docs/manual.pdf) for a
 guided tour and selected typed API references. The [manual source](docs/manual.typ)
 is editable in a Typst IDE; `python3 scripts/render-manual.py` refreshes the PDF.
 Its slide snapshots are bundled, so ordinary compilation needs no preview-generation step.

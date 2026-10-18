@@ -1,0 +1,31 @@
+[book]
+title = "Touying Ambrosia"
+authors = ["Hoang-Nhat Tran"]
+language = "en"
+src = "../../target/book-source"
+
+[build]
+build-dir = "../../target/book"
+create-missing = false
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+smart-punctuation = true
+no-section-label = true
+additional-css = ["theme/ambrosia.css"]
+additional-js = ["theme/ambrosia.js"]
+git-repository-url = "https://github.com/inspiros/touying-ambrosia"
+site-url = "/touying-ambrosia/"
+input-404 = "not-found.md"
+
+[output.html.print]
+enable = false
+
+[output.html.search]
+enable = true
+limit-results = 20
+use-boolean-and = true
+
+[output.html.code]
+hidelines = { typst = "// hidden: " }

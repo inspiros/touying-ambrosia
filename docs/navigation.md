@@ -1,5 +1,9 @@
 # Navigation
 
+<!-- ambrosia-example: navigation -->
+[Editable source](site/examples/navigation.typ).
+<!-- /ambrosia-example -->
+
 Choose structural navigation independently of flavor, then enable small PDF buttons and progress indicators as needed. Open [the editable example](../examples/navigation.typ) in your IDE.
 
 ```typst

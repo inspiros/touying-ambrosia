@@ -4,6 +4,10 @@ Import utilities from the package entrypoint after any direct Touying import. Th
 
 ## Text Hierarchy And Native Content
 
+<!-- ambrosia-example: text -->
+[Editable source](site/examples/text.typ).
+<!-- /ambrosia-example -->
+
 `alert` emphasizes a phrase. `muted` and `subtle` reduce its
 visual prominence without changing the surrounding font, size, weight, or
 spacing. Their scoped names are `ambrosia.muted` and `ambrosia.subtle`.
@@ -32,6 +36,10 @@ comparison, or equation slide type; ordinary slides remain the composition tool.
 Try the [editable text/code example](../examples/text-and-code.typ).
 
 ## One Block, Several Styles
+
+<!-- ambrosia-example: blocks -->
+[Editable source](site/examples/blocks.typ).
+<!-- /ambrosia-example -->
 
 `ambrosia-block` is the shared container. Select a visual treatment with `style`, and a semantic accent with `kind`:
 
@@ -103,6 +111,10 @@ Every omitted heading is accounted for by a linked `… +N` indicator. It jumps 
 `depth`, `level`, and `numbered` control selection and heading prefixes. Entry numbers at the right refer to logical slides, so animation frames do not inflate them. Main and appendix scopes remain separate. Extra overview content and section introductions share the measured space; an oversized single entry/introduction raises a diagnostic.
 
 ## Citation Footnotes
+
+<!-- ambrosia-example: citations -->
+[Editable source](site/examples/citations.typ).
+<!-- /ambrosia-example -->
 
 `footcite` provides citation footnotes. The default development behavior uses a compact, linked author-year marker and a full APA entry at the foot of the slide:
 

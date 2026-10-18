@@ -1,5 +1,9 @@
 # Project Roadmaps
 
+<!-- ambrosia-example: roadmap -->
+[Editable source](site/examples/roadmap.typ).
+<!-- /ambrosia-example -->
+
 `ambrosia-roadmap` (or `ambrosia.roadmap`) shows phases, concurrent work, milestones, and optional task details. Use it for project launches, events, teaching plans, or research schedules. Open [the editable example](../examples/roadmap.typ) in your IDE to try a project launch and an event schedule with light/dark palettes.
 
 ```typst

@@ -1,5 +1,9 @@
 # Authors, Affiliations, And Footers
 
+<!-- ambrosia-example: people -->
+[Editable source](site/examples/people.typ).
+<!-- /ambrosia-example -->
+
 Both `config-info(...)` and `ambrosia.config-info(...)` declare Ambrosia's
 collaborator fields explicitly for IDE completion. They extend Touying's
 metadata configuration and accept additional named fields. Only supplied fields

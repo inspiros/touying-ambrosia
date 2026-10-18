@@ -7,6 +7,7 @@ should use the [user guide](../README.md).
 - [Development](development.md): testing, layout contracts, and manual builds.
 - [Artwork](gallery.md): README comparisons, SVG hero, and manifest thumbnail.
 - [Architecture](architecture.md): renderer boundaries and design proposals.
+- [Website](website.md): mdBook, compiled examples, local preview, and GitHub Pages.
 - [Releasing](releasing.md): versioned documentation and submission contents.
 - [Hero Source](artwork/hero.typ): editable project artwork.
 

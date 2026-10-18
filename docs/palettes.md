@@ -27,6 +27,10 @@ Use palette descriptors for theme-wide changes. Touying's `config-colors(...)` r
 
 ## Show The Actual Colors
 
+<!-- ambrosia-example: palette -->
+[Editable source](site/examples/palette.typ).
+<!-- /ambrosia-example -->
+
 ```typst
 #slide(title: [Our visual language])[
   #ambrosia-palette-showcase()

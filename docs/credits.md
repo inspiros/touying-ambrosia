@@ -1,5 +1,9 @@
 # Optional Theme Credits
 
+<!-- ambrosia-example: credits -->
+[Editable source](site/examples/credits.typ).
+<!-- /ambrosia-example -->
+
 ```typst
 #ambrosia-credit-card() // or ambrosia.credit-card()
 #ambrosia-credit-card(qr: false, width: 60%)

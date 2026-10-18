@@ -1,8 +1,25 @@
-# Ambrosia User Guide
+# Touying Ambrosia
 
-Start with the [package README](../README.md), [illustrated manual](manual.pdf) ([source](manual.typ)), or
-[complete starter](../template/template.typ). The [API index](api.md) lists public
-functions and their scoped equivalents.
+<div class="ambrosia-hero">
+<div>
+<p class="hero-tagline">One Presentation, Many Flavors.</p>
+<p>Compose slide geometry, color, branding, and navigation independently.
+Keep the same authoring tools as your presentation changes.</p>
+</div>
+<div>
+<img class="hero-mark-light" src="../assets/logos/touying-ambrosia.svg" alt="Touying Ambrosia project logo">
+<img class="hero-mark-dark" src="../assets/logos/touying-ambrosia-dark.svg" alt="">
+</div>
+</div>
+
+Start with [your first presentation](getting-started.md), then learn
+[how configuration fits together](configuration.md). This guide is the detailed
+reference; the [illustrated PDF manual](manual.pdf) is its concise offline companion.
+
+![Seven layouts using the same content and ocean palette](../assets/gallery/layouts.webp)
+
+The [package overview](../README.md), [complete starter](../template/template.typ),
+and [API index](api.md) are useful companions to these chapters.
 
 ## Design Your Presentation
 
