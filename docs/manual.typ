@@ -203,7 +203,7 @@ rail's header/footer placement. Header bands and sidebars reserve space;
 transparent `navigation-buttons` and the global `progress-bar` are independent.
 Long navigators window around the current location rather than growing forever.
 
-== The Agenda Is Slide Content
+== Agendas
 `agenda-style` chooses `"list"`, `"cards"`, or `"path"` for the opening outline
 and automatic section transitions. `outline-slide(style: ...)` overrides one
 view. Cards suit a short talk; crowded cards fall back to the compact list.
@@ -263,8 +263,9 @@ For a reusable preset: `#let result = ambrosia-block.with(style: "poster", kind:
 Styles are plain (quiet panel), framed (joined colored header), poster (detached header),
 outlined (transparent frame), stripe (square left accent), and tabbed (centered
 title crossing the border). Nested blocks and pauses keep their normal behavior.
-The theme's `block-style` sets the default. Watermarks require a configured
-`watermark-logo`; they are not inserted by the neutral theme automatically.
+The theme's `block-style` sets the default. Watermarks need a `watermark-logo`,
+which the neutral theme does not supply; `watermark-opacity` (a percentage, `5.5%`
+by default) and `watermark-height` tune the page mark.
 #guide("docs/utilities.md", [Block styling and nesting])
 
 #pagebreak()
@@ -288,8 +289,8 @@ A full note #footcite(<knuth84>); an ordinary citation @knuth84.
 == Marker Policy And Multiple Sources
 Set `footcite-marker`, `cite-marker`, and `bibliography-marker` on the theme.
 The first accepts `"author-year"`, `"number"` (stable citation identity), `"local"`
-(native per-slide numbering), or `"key"` (literal database key). The latter two
-accept `"author-year"` or `"native"`. Explicit native CSL styles take priority.
+(native per-slide numbering), or `"key"` (literal database key).
+`cite-marker` and `bibliography-marker` accept `"author-year"` or `"native"`. Explicit native CSL styles take priority.
 `footcite-once: false` repeats the full note on each cited slide.
 
 With Typst 0.15, separate bibliographies can reuse a key. Pass the same `scope`
@@ -306,7 +307,7 @@ can be labeled and selected with a bibliography's `target`. Unscoped keys retain
 Author-highlighted publication lists use an optional Pergamon
 #guide("docs/publications.md", [recipe and example]); ordinary decks do not import it.
 
-#guide("docs/utilities.md", [Citation behavior and multiple bibliographies]) ·
+#guide("docs/citations.md", [Citation behavior and multiple bibliographies]) ·
 #guide("examples/utilities.typ", [Citation example])
 
 #pagebreak()

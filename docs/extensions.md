@@ -17,9 +17,9 @@ defaults. Keep colors in a palette and assets in the wrapper:
 }
 ```
 
-Re-export the public API and pin a tested core version. Apply your defaults
-before user options/configurations, then per-slide overrides. New flavor names
-need no core registry changes.
+Re-export the public API and pin a tested core version. Put your defaults
+first so that the user's options and configurations override them; per-slide
+overrides still apply last. New flavor names need no core registry changes.
 
 ## Descriptor Options
 

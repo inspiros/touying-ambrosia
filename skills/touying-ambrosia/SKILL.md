@@ -43,6 +43,8 @@ remain separate tasks. Preserve the user's content, branding, and chosen theme.
   `config-store(navigation: none)` reclaims navigator space for a wide figure.
 - Use palette/layout descriptors or `.with(...)` presets for repeated choices.
   Custom header/footer renderers take responsibility for their own spacing.
+- Opacity options are percentages, such as `navigation-buttons-opacity: 35%`
+  and `watermark-opacity: 5.5%`; plain numbers are rejected.
 
 The neutral core starts without branding. Supply caller-owned images through
 `primary-logos` for repeated marks and `logos` for opening partners. Use
@@ -74,6 +76,9 @@ for callback examples.
   for smaller annotations. Do not replace Typst's native `block` or `box`.
 - Keep `pause` and other animation commands visible to Touying's parser;
   avoid hiding them inside opaque `context` wrappers.
+- `outline-slide` and automatic section dividers share `agenda-style`
+  (`"list"`, `"cards"`, or `"path"`) and `agenda-text-size`. Text between a `=`
+  heading and its first slide becomes that section's summary on its divider.
 - `#show: appendix` starts visible, separately numbered backup material and
   freezes the main total. Appendix numbering defaults to local Roman numerals;
   `appendix-numbering: "1", appendix-total: true` selects decimal local totals.
@@ -103,9 +108,8 @@ visual checks that the environment could not perform.
 
 - Touying's re-exported `speaker-note[...]` is private metadata by default.
   Presenter tools can consume notes through their supported workflows; pdfpc
-  is one option and requires a matching
-  exported sidecar. A split slide/notes PDF visibly contains both halves in an
-  ordinary viewer. Follow the [notes guide](https://inspiros.github.io/touying-ambrosia/v0.1.0/speaker-notes.html)
+  is one option and requires a matching exported sidecar. A split slide/notes
+  PDF visibly contains both halves in an ordinary viewer. Follow the [notes guide](https://inspiros.github.io/touying-ambrosia/v0.1.0/speaker-notes.html)
   when presenter notes are requested.
 - `ambrosia-slide-preview` links an existing thumbnail to a slide. It cannot
   capture another slide in the same compilation. Automated SVG snapshots need

@@ -35,7 +35,7 @@ Set `block-style` on the theme for a default, or make a reusable preset:
 | `text-fill`, `title-fill` | Explicit body and title ink. Solid fills otherwise choose contrasting ink. |
 | `radius`, `inset`, `stroke`, `width`, `gap` | Shape and spacing. Defaults scale in `em`. |
 | `shadowed` | `auto` follows the style/flavor; `true` or `false` overrides it. |
-| `watermark` | `"body"` or `"title"`; requires a configured `watermark-logo`. |
+| `watermark` | `true` or `"body"` marks the body, `"title"` the title; requires a [`watermark-logo`](branding.md#watermarks). |
 
 Poster parts cast separate shadows; transparent panels shadow their borders.
 Blocks support nesting and reveals. Keep `pause` visible to Touying's parser;

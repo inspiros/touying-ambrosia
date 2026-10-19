@@ -43,4 +43,28 @@ wrapper should read its own assets before passing bytes or content to the core.
 Custom `header-logo` / `logo-focus` content replaces the automatic strip at that
 position; `auto` restores it.
 
+## Watermarks
+
+A watermark is a large, faint symbol behind title, outline, and section slides.
+The core has none of its own. Give `watermark-logo` a function that receives the
+ink color and returns SVG data:
+
+```typst
+#let symbol = read("symbol.svg")
+#show: ambrosia-theme.with(
+  watermark-logo: fill => symbol.replace("#000000", fill.to-hex()),
+  watermark: true, watermark-height: 40%, watermark-opacity: 8%,
+)
+```
+
+| Option | Default / Effect |
+| --- | --- |
+| `watermark` | `auto` follows the flavor (Simple, Minimal, and Dewdrop use it); `true` covers title, outline, and section slides; `false` turns it off. |
+| `watermark-height` | `50%` of the page height. |
+| `watermark-opacity` | `5.5%`. Like every Ambrosia opacity, it is a percentage. |
+
+The ink follows the slide's actual background. Individual slides accept
+`watermark: true` or `false`, including `ending-slide`, and blocks can carry a
+smaller mark with `ambrosia-block(watermark: true)`.
+
 [Editable branding](../examples/branding.typ) · [Footer logos](people.md#footer-labels-and-logos)

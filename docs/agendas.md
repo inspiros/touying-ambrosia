@@ -39,18 +39,18 @@ Explain the aim of this chapter in one or two sentences.
 The first content slide.
 ```
 
-The automatic divider places that summary in a quiet, left-aligned accent
-panel below the expanded headings. Summaries participate in fitting and can
-contain reveals. No summary means no panel or extra summary spacing; invisible
-heading, counter, and speaker-note metadata do not count as a summary. This
-local heading-body mechanism needs no persistent state, so summaries cannot
-leak into the next section or appendix.
+The automatic divider shows that summary in a quiet, left-aligned accent panel
+below the section's headings. Summaries are fitted with the agenda and can
+contain reveals. A section without a summary gets no panel and no extra space;
+speaker notes alone do not count as a summary. Each summary belongs to its own
+section and never carries over to the next section or the appendix.
 
 ## Select And Fit
 
 `depth`, `level`, and `numbered` select headings and their prefixes. Trailing
 numbers refer to logical slides; animation frames share an entry. Main and
-appendix outlines remain separate.
+appendix outlines remain separate, and appendix entries use the theme's
+[appendix numbering](people.md#appendix-numbers).
 
 Dividers focus on the current section and its children. `neighbors: 0`, `1`, or
 `2` adds quiet surrounding sections. Fitting first drops neighbors, then excess

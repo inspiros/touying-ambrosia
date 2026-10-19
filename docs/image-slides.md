@@ -10,7 +10,7 @@ the calling document.
 The same image with four caption placements. The [editable comparison](../examples/image-slides.typ)
 includes all four; click the image to enlarge it.
 
-The default remains a bottom band:
+By default, the caption is a full-width band at the bottom:
 
 ```typst
 #image-slide("photos/lab.jpg",

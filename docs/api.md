@@ -23,6 +23,10 @@ These helpers keep the same names inside `ambrosia`, such as
 | `backup-slide` | Interlude with frozen slide counter. | [Slide Helpers](presentation-patterns.md) |
 | `appendix` | Show rule starting a separately numbered appendix. | [Appendix Numbers](people.md#appendix-numbers) |
 
+The theme's `agenda-style` and `agenda-text-size` apply to both `outline-slide`
+and automatic section dividers; each helper accepts local `style:` and
+`text-size:` overrides.
+
 ## Components
 
 | Global names | Scoped equivalents | Guide |
@@ -57,8 +61,6 @@ Touying configuration and animation helpers are re-exported. Start with
 and the [Touying documentation](https://touying-typ.github.io/) for their full API.
 Its re-exported `speaker-note` (`ambrosia.speaker-note`) is covered separately
 in [Extras: Presenter Notes With Touying](speaker-notes.md).
-`agenda-style` configures overview and automatic section-divider bodies
-together; either helper accepts a local `style:` override.
 
 ## Imports
 

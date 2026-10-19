@@ -34,21 +34,23 @@ mkdir -p .agents/skills
 cp -R /path/to/touying-ambrosia/skills/touying-ambrosia .agents/skills/
 ```
 
-This is the Codex project layout; other agents may use another discovery
-directory. Follow their installation instructions. See the
+This is the Codex project layout. Claude Code reads project skills from
+`.claude/skills/` instead; other agents may use another directory. Follow their
+installation instructions, such as the
 [Codex skill documentation](https://learn.chatgpt.com/docs/build-skills).
 
 ## Use It
 
-In Codex, explicitly invoke the installed skill:
+In Codex, invoke the installed skill explicitly:
 
 ```text
 Use $touying-ambrosia to draft an eight-slide research talk from my notes.
 Use minimal with the ocean palette, include two authors, and compile the PDF.
 ```
 
-Or ask it to edit an existing Ambrosia deck; the description allows automatic
-selection. If a newly installed skill is missing, start a fresh agent session.
+In Claude Code, type `/touying-ambrosia` followed by the same request. You can
+also simply ask an agent to edit an existing Ambrosia deck; the skill's
+description lets it be selected automatically. If a newly installed skill is missing, start a fresh agent session.
 In an agent without skill support, provide `SKILL.md` and its companion files
 as context manually. The files remain readable Markdown and Typst.
 
