@@ -55,7 +55,7 @@ The trimmed copy contains:
 - `typst.toml`, `README.md`, `LICENSE`, and any third-party license notices.
 - All `src/` implementation and runtime assets referenced by it or the starter.
 - The starter files under `template/`, including its helper modules and references.
-- The manifest's `assets/template-thumbnail.png`.
+- The manifest's `assets/template-thumbnail.webp`.
 
 Do not copy `.git`, tests, development scripts, docs, examples, generated PDFs,
 caches, README gallery/hero artwork, or the example photograph `assets/kyklo.webp`.

@@ -43,9 +43,9 @@ python3 scripts/render-thumbnail.py
 The full preview generator calls this script too. Intermediate renders stay
 under `target/thumbnail`.
 
-The manifest instead points to `assets/template-thumbnail.png`: the first page
+The manifest instead points to `assets/template-thumbnail.webp`: the first page
 of the initialized starter, without source edits or input overrides. The same
-script creates that lossless PNG. This follows the Universe template-thumbnail
+script creates that lossless WebP. This follows the Universe template-thumbnail
 requirement; the collage remains separate project artwork.
 
 ## Regenerate

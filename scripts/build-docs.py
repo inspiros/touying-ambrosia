@@ -62,7 +62,7 @@ def render_examples(examples):
     runtime = [ROOT / "typst.toml", *(ROOT / "src").rglob("*")]
     runtime += [p for p in (ROOT / "assets").rglob("*")
                 if not any(part in ("gallery", "samples", "slide-previews") for part in p.parts)
-                and p.name not in ("thumbnail.svg", "template-thumbnail.png", "kyklo.webp")]
+                and p.name not in ("thumbnail.svg", "template-thumbnail.webp", "kyklo.webp")]
     runtime += list((SITE / "examples").rglob("*"))
     fingerprint = digest([p for p in runtime if p.is_file()]) + command("typst", "--version")
     CACHE.mkdir(parents=True, exist_ok=True)

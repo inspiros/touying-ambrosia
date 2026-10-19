@@ -67,7 +67,8 @@ without a total:
 `appendix-numbering` accepts `"i"`, `"1"`, `"A"`, `"S1"`, a function, or
 `none` to hide it. A function receives the local number, or both number and
 total when `appendix-total: true`. For A1/A2, use `n => [A#n]` rather than the
-two-level pattern `"A1"`.
+two-level pattern `"A1"`. Appendix outline entries use the same labels; string
+patterns omit the total there.
 
 For continuous whole-deck numbering, replace the number callback:
 

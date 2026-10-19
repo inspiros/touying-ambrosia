@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the SVG README hero and a PNG of the initialized template cover."""
+"""Render the SVG README hero and a WebP of the initialized template cover."""
 import argparse
 from pathlib import Path
 import subprocess
@@ -52,9 +52,12 @@ def main():
         command += ["--package-path", str(args.package_path.resolve())]
     subprocess.run([*command, f"@preview/{package['name']}:{package['version']}", str(starter)],
                    cwd=ROOT, check=True)
-    compile(starter / metadata["template"]["entrypoint"], ROOT / "assets/template-thumbnail.png",
-            "--pages", "1", document_root=starter)
-    print("Updated SVG README hero, three bundled slide renders, and initialized-template PNG.")
+    cover = OUTPUT / "template-thumbnail.png"
+    compile(starter / metadata["template"]["entrypoint"], cover, "--pages", "1", document_root=starter)
+    # Universe accepts WebP; lossless keeps flat slide artwork exact and smaller.
+    with Image.open(cover) as image:
+        image.convert("RGB").save(ROOT / metadata["template"]["thumbnail"], lossless=True, method=6)
+    print("Updated SVG README hero, three bundled slide renders, and initialized-template WebP.")
 
 
 if __name__ == "__main__":

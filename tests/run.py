@@ -1458,13 +1458,23 @@ def assert_appendix_numbering(output):
         typst("compile", "--root", ROOT, "--input", f"mode={mode}", "tests/appendix-numbering.typ", path)
         lines = [[line.strip() for line in page.splitlines() if line.strip()] for page in pdf_pages(path)]
         assert tuple(compact(page[-1]) for page in lines) == tuple(map(compact, expected)), (mode, lines)
+    # Appendix agenda entries follow the same numbering as the footer, including none.
+    for pattern, expected in (("i", ["i", "ii", "iii"]), ("A", ["A", "B", "C"]),
+                              ("custom", ["Annex 1", "Annex 2", "Annex 3"]),
+                              ("custom-total", ["Annex 1 of 3", "Annex 2 of 3", "Annex 3 of 3"]), ("none", [])):
+        path = output / f"appendix-agenda-{pattern}.pdf"
+        typst("compile", "--root", ROOT, "--input", f"numbering={pattern}", "tests/appendix-agenda.typ", path)
+        text = " ".join(pdf_pages(path)[-1].split())
+        entries = [f"Backup {name} {number}".strip() for name, number in zip(("One", "Two"), expected or ("", ""))]
+        footer = expected[-1:] if expected else []
+        assert text == " ".join(["Outline", *entries, *footer]), (pattern, text)
     try:
         typst("compile", "--root", ROOT, "--input", "numbering=invalid", "tests/appendix-numbering.typ", output / "invalid-appendix-count.pdf")
     except RuntimeError as error:
         assert "Appendix numbering must be" in str(error), error
     else:
         raise AssertionError("Invalid appendix numbering must fail clearly.")
-    print("PASS appendix numbering: patterns/functions/hidden, appendix-only totals, animations, uncounted backups, handouts and continuous footer override")
+    print("PASS appendix numbering: patterns/functions/hidden, appendix-only totals, animations, uncounted backups, handouts, continuous footer override and agenda entries")
 
 
 def assert_outline_fill(output):
