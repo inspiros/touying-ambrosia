@@ -20,6 +20,32 @@
 #outline-slide(style: "path", title: [Where We Are])
 ```
 
+## Text Size And Chapter Summaries
+
+Agenda text defaults to `1.15em`, relative to the presentation's body size.
+Change `agenda-text-size` on the theme, or `text-size` on one agenda helper:
+
+```typst
+#show: ambrosia-theme.with(agenda-text-size: 1.2em)
+#outline-slide(text-size: 20pt)
+```
+
+A chapter summary is the content between its section heading and first slide:
+
+```typst
+= Design The Approach
+Explain the aim of this chapter in one or two sentences.
+== A Useful Baseline
+The first content slide.
+```
+
+The automatic divider places that summary in a quiet, left-aligned accent
+panel below the expanded headings. Summaries participate in fitting and can
+contain reveals. No summary means no panel or extra summary spacing; invisible
+heading, counter, and speaker-note metadata do not count as a summary. This
+local heading-body mechanism needs no persistent state, so summaries cannot
+leak into the next section or appendix.
+
 ## Select And Fit
 
 `depth`, `level`, and `numbered` select headings and their prefixes. Trailing

@@ -3,6 +3,8 @@
 These instructions are for working on the package. For presentation authoring,
 use the [user documentation](docs/README.md).
 
+For a code-review entry point and source map, read [AGENTS.md](AGENTS.md).
+
 Use Typst 0.15+, Python 3.11+, and Poppler for the checks. Artwork scripts also
 use Pillow (`python3 -m pip install Pillow`).
 
@@ -41,7 +43,6 @@ General regression tests live here; institution wrappers only need their brandin
 
 The [component architecture notes](docs/maintainers/architecture.md) describe a future shared
 native renderer layer for poster/thesis themes, with thin document-specific adapters.
-
 
 The [maintainer index](docs/maintainers/README.md) collects implementation,
 artwork, architecture, and release notes.

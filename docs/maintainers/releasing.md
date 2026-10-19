@@ -32,7 +32,10 @@ handles Ambrosia's own project mark.
 
 After final testing and wording review, commit the complete source, push the
 repository, and create/push its version tag. Tags must exist before links in a
-submitted package depend on them. Do not retarget a tag after submission.
+submitted package depend on them. During review of an unmerged submission,
+an explicitly authorized correction may refresh an unpublished source tag;
+keep the staged files and pinned links consistent. Once published, tags and
+package versions are immutable: changes require a new release.
 The manual's PDF links target the manifest version's source tag.
 
 ## Submission Copy
@@ -56,6 +59,8 @@ The trimmed copy contains:
 
 Do not copy `.git`, tests, development scripts, docs, examples, generated PDFs,
 caches, README gallery/hero artwork, or the example photograph `assets/kyklo.webp`.
+Repository guidance (`AGENTS.md`, `CLAUDE.md`) and the consumer `skills/` bundle
+also stay in the source repository and are excluded from package installs.
 Omit fictional lab and partner logos; only Ambrosia's own light/dark project
 marks belong in the core's `assets/logos/` submission. The required
 initialized-template thumbnail is the one exception to omitting documentation

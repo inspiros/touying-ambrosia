@@ -56,7 +56,11 @@ python3 scripts/render-previews.py --update-pdfs
 
 Typst renders the source; Pillow assembles comparison sheets and converts them to WebP. The script writes temporary renders under `target/previews` and committed README artwork under `assets/gallery`. Gallery assets are excluded from the installable runtime package. The optional flag also refreshes `docs/manual.pdf`, `examples/demo.pdf`, and `examples/slide-previews.pdf`. The initialized starter PDF is checked under `target` only.
 
-The slide-preview component image is rendered from its dedicated example after the SVG exporter builds exact target snapshots. Its initial source remains IDE-friendly with placeholders; the generator enables images only for the captured README preview.
+The slide-preview component image is rendered from its dedicated example after
+the SVG exporter refreshes its exact target snapshots. Those SVGs and their
+manifest are bundled in the source repository, so the example displays images
+in an IDE immediately. Disable `show-previews` to inspect its clickable
+placeholders; regenerate the snapshots after changing target slides.
 
 The agenda comparison uses [agendas.typ](../../examples/agendas.typ) to pair each overview with its focused section transition: list, cards, and path. The same editable source generates all six images.
 

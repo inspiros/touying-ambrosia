@@ -34,6 +34,7 @@ def main():
                   checks.assert_utilities, checks.assert_installed_template, checks.assert_extensions,
                   checks.assert_typography, checks.assert_sidebar_background, checks.assert_slide_previews):
         check(output)
+    checks.assert_agenda_summaries(output)
     checks.assert_new_utilities(output, ("light", "midnight"))
     checks.assert_navigation_combinations(output, choices=("dots", "tree", "sidebar", "segments"))
     subprocess.run([sys.executable, str(ROOT / "tests/check_speaker_notes.py"), "--bundle",

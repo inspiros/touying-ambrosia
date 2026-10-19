@@ -274,6 +274,38 @@ def assert_path_geometry(events):
             assert abs(spine["y"] + spine["length"] - nodes[i + 1]["y"]) < .01, (event, spine)
 
 
+def assert_agenda_summaries(output):
+    for style in ("list", "cards", "path"):
+        for palette, size in (("light", 18), ("midnight", 24)):
+            options = ("--root", ROOT, "--input", f"style={style}", "--input", f"palette={palette}", "--input", f"size={size}")
+            target = output / f"agenda-summaries-{style}-{palette}.pdf"
+            typst("compile", *options, "tests/agenda-summaries.typ", target)
+            pages = pdf_pages(target)
+            assert len(pages) == 12, (style, palette, len(pages))
+            assert "Then add the approach." not in pages[5] and "Then add the approach." in pages[6]
+            assert "Private note" not in "\n".join(pages)
+            values = json.loads(typst("eval", *options, "--in", "tests/agenda-summaries.typ", "--format", "json", '''{
+              (fits: query(<ambrosia-agenda-fit>).map(it => (page: it.location().page(), ..it.value)),
+               panels: query(<ambrosia-agenda-introduction>).map(it => it.location().page()),
+               fixture: query(<summary-fixture>).map(it => it.location().page()))
+            }'''))
+            assert values["panels"] == [6, 7], (style, palette, values)
+            assert values["fixture"] == [4], "Nonvisual metadata must survive summary normalization."
+            fits = values["fits"]
+            assert len(fits) == 7 and all(abs(it["text-size"] - size * 1.15) < .01 for it in fits)
+            assert [it["page"] for it in fits if it["introduction"]] == [6, 7]
+            empty = [it for it in fits if it["kind"] == "section" and not it["introduction"]]
+            assert max(it["main-height"] for it in empty) - min(it["main-height"] for it in empty) < .01
+            assert all(it["height"] <= it["available"] + .01 and .8 <= it["scale"] <= 1 for it in fits)
+    for theme_size, local_size, overview_size in (("22", "auto", "auto"), ("22", "19", "auto"), ("22", "auto", "21")):
+        values = json.loads(typst("eval", "--root", ROOT, "--input", f"agenda-size={theme_size}",
+            "--input", f"local-size={local_size}", "--input", f"overview-size={overview_size}", "--in", "tests/agenda-summaries.typ", "--format", "json",
+            "query(<ambrosia-agenda-fit>).map(it=>it.value)"))
+        assert values[0]["text-size"] == (22 if overview_size == "auto" else 21)
+        assert all(it["text-size"] == (22 if local_size == "auto" else 19) for it in values[1:])
+    print("PASS agenda summaries: metadata-only bodies, no empty panels/gaps, local/theme sizing, reveals, styles, dark palettes and appendix", flush=True)
+
+
 def assert_agenda_styles(output):
     for style in ('list', 'cards', 'path'):
         for palette, size in (('light',18), ('midnight',24)):
@@ -1533,6 +1565,7 @@ def main():
     assert_new_utilities(output, palettes)
     assert_sankey_recipe(output)
     assert_image_captions(output)
+    assert_agenda_summaries(output)
     assert_agenda_styles(output)
     assert_agendas_people_watermarks(output)
     assert_panel_shadows_and_footer_labels(output)

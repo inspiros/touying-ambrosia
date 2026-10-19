@@ -1,5 +1,9 @@
 # Components Across Presentations, Posters, And Theses
 
+This is a future design proposal. For the implemented source layout and review
+entry point, see the [repository guide](../../AGENTS.md). No `ambrosia-kit`
+package is currently imported.
+
 Ambrosia's visual vocabulary can serve more than slides. Share the native
 rendering code once a second document family needs it; keep the adapters
 specific to their document model. A poster or thesis should not import Touying
@@ -95,13 +99,13 @@ explicitly when the kit changes.
 
 ## Component And Slide-Type Design Notes
 
-## Utility Design
+### Utility Design
 
 Block treatments belong in one `style:` API because they share the same content model, nesting, animation handling, and options. `ambrosia-block.with(...)` provides named local presets without duplicating implementations. Separate packages/modules are more appropriate for independent systems with different semantics, such as theorem numbering and proof references.
 
 `ambrosia-badge` and `ambrosia-source-note` fill small annotation gaps. [`ambrosia-roadmap`](../roadmap.md) handles a more distinct data/layout problem: aligned time spans, concurrent work, queued detail rows, and fitting. Existing `alert`, block, outline, and citation helpers cover most other research talk needs.
 
-## Alternative Slide Layouts
+### Alternative Slide Layouts
 
 Title and ending slides carry enough structured metadata to justify named
 layout presets. Other slide types benefit from fewer, narrower choices:
@@ -121,7 +125,7 @@ A poster, metric card, comparison, or process diagram still does not need a new
 slide helper merely to arrange a grid. Preserve ordinary Typst composition until
 a repeated content model or automatic behavior earns its own component.
 
-## Future Navigation Variants
+### Future Navigation Variants
 
 A local slide-step strip is a possible future dot variant. A thumbnail overview
 belongs to slide composition and the preview export workflow rather than

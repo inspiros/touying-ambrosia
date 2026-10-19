@@ -11,6 +11,7 @@
   palette: palette,
   outline-fill: none, // change to repeat[.] for dotted leaders
   agenda-style: style, // default for BOTH overviews and automatic section dividers
+  agenda-text-size: 1.15em, // relative to body text; try 1.2em or 20pt
   font: "DejaVu Sans",
   config-common(new-section-slide-fn: new-section-slide.with(neighbors: 1)),
   config-info(title: [From Question To Result], author: [Presenter], short-title: [Agendas]),
@@ -21,7 +22,7 @@
 #outline-slide(depth: 1)
 
 = Ask The Question
-A short introduction shares the measured agenda region.
+A short chapter summary shares the fitted region in its own quiet panel.
 == The Starting Point
 What is the problem, and why does it matter?
 == What We Need To Learn
@@ -35,6 +36,7 @@ Establish the comparison.
 Explain the approach and its assumptions.
 
 = Examine The Evidence
+// No summary here: the expanded branch has no empty introduction panel/gap.
 == The Main Result
 Show the evidence at an appropriate scale.
 == Limits And Tradeoffs

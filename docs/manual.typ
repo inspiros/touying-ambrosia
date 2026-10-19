@@ -207,12 +207,15 @@ Long navigators window around the current location rather than growing forever.
 `agenda-style` chooses `"list"`, `"cards"`, or `"path"` for the opening outline
 and automatic section transitions. `outline-slide(style: ...)` overrides one
 view. Cards suit a short talk; crowded cards fall back to the compact list.
+`agenda-text-size` defaults to `1.15em`; either helper accepts local `text-size`.
 Set `outline-fill: repeat[.]` on the theme, or `fill:` on one overview/divider,
 for dotted leaders. The core default is `none`.
 
 Section dividers center the current section and expanded children, with quiet
 neighbors (`neighbors: 0`, `1`, or `2`). Fitting removes neighbors and excess depth
 before introducing linked omission markers. Nothing spills onto a second page.
+Text between the chapter heading and its first slide becomes a quiet summary
+panel; chapters without visible summary content add no panel or summary gap.
 #source(```typst
 #show: ambrosia-theme.with(
   config-common(new-section-slide-fn:
