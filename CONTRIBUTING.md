@@ -39,6 +39,9 @@ python3 scripts/render-previews.py --update-pdfs
 python3 scripts/build-docs.py --serve  # searchable manual with live reload
 ```
 
+The Checks workflow runs only when a `v*` release tag is pushed. Run the relevant
+checks locally before committing ordinary changes.
+
 General regression tests live here; institution wrappers only need their branding/integration checks. Disposable experiments belong in `develop/`, generated output in `target/`. The selected release PDFs are exceptions: `docs/manual.pdf`, `examples/demo.pdf`, and `examples/slide-previews.pdf` are committed beside their sources. See [development](docs/maintainers/development.md), [release preparation](docs/maintainers/releasing.md), and [CHANGELOG](CHANGELOG.md).
 
 The [component architecture notes](docs/maintainers/architecture.md) describe a future shared

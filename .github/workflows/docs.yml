@@ -4,19 +4,24 @@ on:
   push:
     branches: [master]
     paths:
-      - 'docs/**'
+      - 'docs/*.md'
+      - 'docs/site/**'
       - 'src/**'
       - 'assets/**'
       - 'typst.toml'
       - 'scripts/build-docs.py'
+      - 'scripts/install.py'
       - '.github/workflows/docs.yml'
   pull_request:
+    branches: [master]
     paths:
-      - 'docs/**'
+      - 'docs/*.md'
+      - 'docs/site/**'
       - 'src/**'
       - 'assets/**'
       - 'typst.toml'
       - 'scripts/build-docs.py'
+      - 'scripts/install.py'
       - '.github/workflows/docs.yml'
   workflow_dispatch:
 

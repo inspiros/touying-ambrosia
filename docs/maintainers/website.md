@@ -51,9 +51,11 @@ package installation is modified. This build needs no third-party Python modules
    <https://inspiros.github.io/touying-ambrosia/> or the versioned guide at
    <https://inspiros.github.io/touying-ambrosia/v0.1.0/>.
 
-Further changes to the public guides, theme, example assets, or package code
-rebuild and deploy automatically from `master`. Pull requests build and validate
-the book but do not deploy. The workflow pins mdBook's download checksum and
+Changes to public Markdown guides, `docs/site/`, assets, package code, the
+manifest, or the website builder/installer rebuild and deploy automatically
+from `master`. Maintainer notes, compiled PDFs, and unrelated repository changes
+do not trigger a build. Pull requests targeting `master` use the same path
+filters to validate the book without deploying. Manual runs remain available. The workflow pins mdBook's download checksum and
 the GitHub Actions. It uses GitHub's Pages deployment token, not a personal token.
 
 ## Add A Code/Output Pair
